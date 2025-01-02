@@ -1,0 +1,25 @@
+{
+//  a configuration file for the TypeScript compiler (tsc).
+//  It specifies how TypeScript should transpile your TypeScript code into JavaScript
+  "compilerOptions": {
+    "lib": [
+      "es5",
+      "es6"
+    ],
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./build",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ]
+  },
+  "include": [
+    "src",
+    "types"
+  ]
+}
