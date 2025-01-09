@@ -1,5 +1,5 @@
-import {OrderItemEntity} from "../entity/OrderItem.entity";
-import {OrderEntity} from "../entity/Order.entity";
+import {OrderItemEntity} from "../entity/OrderItem.entity.js";
+import {OrderEntity} from "../entity/Order.entity.js";
 
 // DTO: Data Transfer Object (clean up order format)
 class OrderItemDto {

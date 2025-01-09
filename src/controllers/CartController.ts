@@ -1,11 +1,11 @@
 import {Request, Response} from "express";
-import {ResMsg} from "../helper/ResMsg";
-import gDB from "../InitDataSource";
-import {CartEntity} from "../entity/Cart.entity";
-import {UserEntity} from "../entity/User.entity";
-import {CartItemEntity} from "../entity/CartItem.entity";
 import {validate} from "class-validator";
-import {CLog} from "../AppHelper";
+import {CLog} from "../AppHelper.js";
+import {ResMsg} from "../helper/ResMsg.js";
+import gDB from "../InitDataSource.js";
+import {CartEntity} from "../entity/Cart.entity.js";
+import {UserEntity} from "../entity/User.entity.js";
+import {CartItemEntity} from "../entity/CartItem.entity.js";
 
 export class CartController {
     // static function belongs to class rather than an instance of the class (don't need to create instance to use it)

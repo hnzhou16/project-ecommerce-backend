@@ -1,19 +1,19 @@
 import {Request, Response} from "express";
-import gDB from "../InitDataSource";
-import {ProductSwatchEntity} from "../entity/ProductSwatch.entity";
-import {ResMsg} from "../helper/ResMsg";
-import {ProductCategoryEntity} from "../entity/ProductCategory.entity";
-import {SizeEnum} from "../enums/SizeEnum";
-import {GenderEnum} from "../enums/GenderEnum";
-import {FabricEnum} from "../enums/FabricEnum";
-import {OccasionEnum} from "../enums/OccasionEnum";
-import {ProductCarouselEntity} from "../entity/ProductCarousel.entity";
-import {ProductImageEntity} from "../entity/ProductImage.entity";
-import {ProductEntity} from "../entity/Product.entity";
 import {validate} from "class-validator";
-import {CLog} from "../AppHelper";
-import {ProductDTO} from "../helper/ProductDTO";
-import {ProductColorGroupEntity} from "../entity/ProductColorGroup.entity";
+import gDB from "../InitDataSource.js";
+import {ProductSwatchEntity} from "../entity/ProductSwatch.entity.js";
+import {ResMsg} from "../helper/ResMsg.js";
+import {ProductCategoryEntity} from "../entity/ProductCategory.entity.js";
+import {SizeEnum} from "../enums/SizeEnum.js";
+import {GenderEnum} from "../enums/GenderEnum.js";
+import {FabricEnum} from "../enums/FabricEnum.js";
+import {OccasionEnum} from "../enums/OccasionEnum.js";
+import {ProductCarouselEntity} from "../entity/ProductCarousel.entity.js";
+import {ProductImageEntity} from "../entity/ProductImage.entity.js";
+import {ProductEntity} from "../entity/Product.entity.js";
+import {CLog} from "../AppHelper.js";
+import {ProductDTO} from "../helper/ProductDTO.js";
+import {ProductColorGroupEntity} from "../entity/ProductColorGroup.entity.js";
 
 export class ProductController {
 

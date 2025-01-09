@@ -1,14 +1,13 @@
 import {Request, Response} from "express";
-import {ResMsg} from "../helper/ResMsg";
-import gDB from "../InitDataSource";
-import {UserEntity} from "../entity/User.entity";
-import {OrderEntity} from "../entity/Order.entity";
-import {OrderItemEntity} from "../entity/OrderItem.entity";
-import {CartItemEntity} from "../entity/CartItem.entity";
-import {CartEntity} from "../entity/Cart.entity";
 import {validate} from "class-validator";
-import {CLog} from "../AppHelper";
-import {OrderDto} from "../helper/OrderDto";
+import {ResMsg} from "../helper/ResMsg.js";
+import gDB from "../InitDataSource.js";
+import {UserEntity} from "../entity/User.entity.js";
+import {OrderEntity} from "../entity/Order.entity.js";
+import {OrderItemEntity} from "../entity/OrderItem.entity.js";
+import {CartItemEntity} from "../entity/CartItem.entity.js";
+import {CLog} from "../AppHelper.js";
+import {OrderDto} from "../helper/OrderDto.js";
 
 export class OrderController {
   private static validateOrderData(data: any): boolean {

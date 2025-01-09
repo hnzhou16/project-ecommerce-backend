@@ -1,22 +1,23 @@
-import {AfterInsert, Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
-import {ProductCategoryEntity} from "./ProductCategory.entity";
+import {AfterInsert, Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, Relation} from "typeorm";
 import {IsEnum, Length} from "class-validator";
-import {GenderEnum} from "../enums/GenderEnum";
-import {ProductSwatchEntity} from "./ProductSwatch.entity";
-import {ProductCarouselEntity} from "./ProductCarousel.entity";
-import {FabricEnum} from "../enums/FabricEnum";
-import {OccasionEnum} from "../enums/OccasionEnum";
-import {SizeEnum} from "../enums/SizeEnum";
+import {ProductCategoryEntity} from "./ProductCategory.entity.js";
+import {GenderEnum} from "../enums/GenderEnum.js";
+import {ProductSwatchEntity} from "./ProductSwatch.entity.js";
+import {ProductCarouselEntity} from "./ProductCarousel.entity.js";
+import {FabricEnum} from "../enums/FabricEnum.js";
+import {OccasionEnum} from "../enums/OccasionEnum.js";
+import {SizeEnum} from "../enums/SizeEnum.js";
 
 @Entity()
 export class ProductEntity {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column({unique: true, nullable: true})
+  @Column({type: "varchar", unique: true, nullable: true})
   productId: string;
 
-  @Column()  @Length(0, 300)
+  @Column({type: "varchar"})
+  @Length(0, 300)
   name: string
 
   @Column({type: "decimal", precision: 10, scale: 2})
@@ -24,11 +25,11 @@ export class ProductEntity {
 
   @ManyToMany(() => ProductSwatchEntity, (swatch) => swatch.products,
     {cascade: true, eager: true})
-  swatches: ProductSwatchEntity[]
+  swatches: Relation<ProductSwatchEntity[]>
 
   @OneToMany(() => ProductCarouselEntity, (carousel) => carousel.product,
     {cascade: true, eager:true})
-  mainCarousel: ProductCarouselEntity[]
+  mainCarousel: Relation<ProductCarouselEntity[]>
 
   @Column({type: 'simple-array'})
   @IsEnum(SizeEnum, {each: true})
@@ -41,7 +42,7 @@ export class ProductEntity {
 
   @ManyToOne(() => ProductCategoryEntity, (category) => category.products,
     {cascade: true, eager: true})
-  category: ProductCategoryEntity
+  category: Relation<ProductCategoryEntity>
 
   @Column({type: 'text', enum: FabricEnum})
   fabric: FabricEnum

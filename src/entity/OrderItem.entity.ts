@@ -1,37 +1,37 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn} from 'typeorm'
-import {OrderEntity} from "./Order.entity";
-import {UserEntity} from "./User.entity";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn, Relation} from 'typeorm'
+import {OrderEntity} from "./Order.entity.js";
+import {UserEntity} from "./User.entity.js";
 
 @Entity()
 export class OrderItemEntity {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column()
+    @Column({type: "varchar"})
     productId: string
 
-    @Column()
+    @Column({type: "varchar"})
     colorId: string
 
-    @Column({ nullable: true })
+    @Column({type: "varchar", nullable: true })
     color: string
 
-    @Column({ nullable: true })
+    @Column({type: "varchar", nullable: true })
     size: string
 
-    @Column()
+    @Column({type: "int"})
     quantity: number
 
-    @Column()
+    @Column({type: "decimal", precision: 10, scale: 2})
     price: number
 
-    @Column()
+    @Column({type: "varchar"})
     image: string
 
-    @Column()
+    @Column({type: "varchar"})
     name: string
 
     @ManyToOne(() => OrderEntity, (order) => order.orderItems)
-    order: OrderEntity
+    order: Relation<OrderEntity>
 
 }

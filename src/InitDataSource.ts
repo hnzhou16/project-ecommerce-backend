@@ -1,11 +1,11 @@
-// 20221020, Kevin Maas
-
-import { DataSource, DataSourceOptions } from 'typeorm'
-import { CLog, CPath, gisProduction } from './AppHelper'
+import "reflect-metadata"
 import * as path from 'path'
+import { fileURLToPath } from 'url';
+import { CLog } from './AppHelper.js'
+import { DataSource, DataSourceOptions } from 'typeorm'
 
 if (!process.env.PORT) {
-  require('dotenv-flow').config()
+  await import('dotenv-flow').then((dotenv) => dotenv.config());
 }
 
 if (!process.env.DB_FILE) {
@@ -14,6 +14,8 @@ if (!process.env.DB_FILE) {
 }
 
 // alert only
+const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+const __dirname = path.dirname(__filename);  // get the name of the directory
 const entityPath =
   process.env.ENV === 'production'
     ? path.join(__dirname + '/../../build/src/auth2/entity/**/*.entity.js')
@@ -40,24 +42,11 @@ const options: DataSourceOptions = {
   logging: ['error'],
   maxQueryExecutionTime: 3000, //logging query executing 1 second
 
-  // "keepConnectionAlive":true,
-  // "[__for typeORM seeding": null,
-
-  // "__for typeORM seeding": null,
   entities: [
     entityPath,
   ],
   migrations: [process.env.MYSQL_MIGRATIONS],
   subscribers: [process.env.MYSQL_SUBSCRIBERS],
-  // seeds: [
-  //     //process.env.TYPEORM_SEEDING_SEEDS
-  //     // MainSeed
-  // ],
-  // "cli": {
-  //     "entitiesDir": process.env.MYSQL_ENTITIESDIR,
-  //     "migrationsDir": process.env.MYSQL_MIGRATIONSDIR,
-  //     "subscribersDir": process.env.MYSQL_SUBSCRIBERSDIR
-  // }
 }
 const gDB = new DataSource(options)
 export default gDB

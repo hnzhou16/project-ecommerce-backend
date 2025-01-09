@@ -5,10 +5,10 @@ import {
     JoinTable,
     OneToMany,
     OneToOne,
-    PrimaryGeneratedColumn,
+    PrimaryGeneratedColumn, Relation,
 } from 'typeorm'
-import { CartItemEntity } from './CartItem.entity'
-import { UserEntity } from './User.entity'
+import { CartItemEntity } from './CartItem.entity.js'
+import { UserEntity } from './User.entity.js'
 
 @Entity()
 export class CartEntity {
@@ -24,8 +24,8 @@ export class CartEntity {
         cascade: true, // only need to save CartEntity, it'll automatically save CartItems
         eager: true,
     })
-    cartItems: CartItemEntity[]
+    cartItems: Relation<CartItemEntity[]>
 
     @OneToOne(() => UserEntity, (user) => user.cart)
-    user: UserEntity
+    user: Relation<UserEntity>
 }

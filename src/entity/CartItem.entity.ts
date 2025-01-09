@@ -1,35 +1,35 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
-import {CartEntity} from "./Cart.entity";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, Relation} from 'typeorm'
+import {CartEntity} from "./Cart.entity.js";
 
 @Entity()
 export class CartItemEntity {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column()
+    @Column({type: "varchar"})
     productId: string
 
-    @Column()
+    @Column({type: "varchar"})
     colorId: string
 
-    @Column()
+    @Column({type: "varchar"})
     color: string
 
-    @Column({ nullable: true })
+    @Column({type: "varchar", nullable: true })
     size: string
 
-    @Column()
+    @Column({type: "int"})
     quantity: number
 
-    @Column()
+    @Column({type: "decimal", precision: 10, scale: 2})
     price: number
 
-    @Column()
+    @Column({type: "varchar"})
     image: string
 
-    @Column()
+    @Column({type: "varchar"})
     name: string
 
     @ManyToOne(() => CartEntity, (cart) => cart.cartItems)
-    cart: CartEntity
+    cart: Relation<CartEntity>
 }

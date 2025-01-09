@@ -1,37 +1,37 @@
-import {Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
-import {ProductEntity} from "./Product.entity";
-import product from "../routes/product";
-import {ProductImageEntity} from "./ProductImage.entity";
-import {ProductCarouselEntity} from "./ProductCarousel.entity";
+import {Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, Relation} from "typeorm";
 import {Length} from "class-validator";
-import {ProductColorGroupEntity} from "./ProductColorGroup.entity";
+import {ProductEntity} from "./Product.entity.js";
+import product from "../routes/product.js";
+import {ProductImageEntity} from "./ProductImage.entity.js";
+import {ProductCarouselEntity} from "./ProductCarousel.entity.js";
+import {ProductColorGroupEntity} from "./ProductColorGroup.entity.js";
 
 @Entity()
 export class ProductSwatchEntity {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column({nullable: true})
+  @Column({type: "varchar", nullable: true})
   colorId: string
 
-  @Column()
+  @Column({type: "varchar"})
   @Length(0, 100)
   name: string
 
-  @Column()
+  @Column({type: "varchar"})
   @Length(0, 300)
   url: string
 
   @ManyToOne(() => ProductColorGroupEntity, group => group.swatches,
     {cascade: true, eager: true})
-  colorGroup: ProductColorGroupEntity
+  colorGroup: Relation<ProductColorGroupEntity>
 
   @OneToMany(() => ProductCarouselEntity, (carousel) => carousel.swatch,
     {nullable:true, lazy: true})
-  carousels: ProductCarouselEntity[]
+  carousels: Relation<ProductCarouselEntity[]>
 
   @ManyToMany(() => ProductEntity, (product) => product.swatches,
     {nullable: true, lazy: true})
   @JoinTable()
-  products: ProductEntity[]
+  products: Relation<ProductEntity[]>
 }

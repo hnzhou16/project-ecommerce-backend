@@ -1,16 +1,15 @@
 import {Request, Response} from "express";
-import {CLog} from "../AppHelper";
-import {ResMsg} from "../helper/ResMsg";
-import gDB from "../InitDataSource";
-import {ProductEntity} from "../entity/Product.entity";
-import {ProductCategoryEntity} from "../entity/ProductCategory.entity";
-import {ProductSwatchEntity} from "../entity/ProductSwatch.entity";
-import {GenderEnum} from "../enums/GenderEnum";
-import {FabricEnum} from "../enums/FabricEnum";
-import {OccasionEnum} from "../enums/OccasionEnum";
-import {SizeEnum} from "../enums/SizeEnum";
-import {ProductDTO} from "../helper/ProductDTO";
-import {ProductColorGroupEntity} from "../entity/ProductColorGroup.entity";
+import {CLog} from "../AppHelper.js";
+import {ResMsg} from "../helper/ResMsg.js";
+import gDB from "../InitDataSource.js";
+import {ProductEntity} from "../entity/Product.entity.js";
+import {ProductCategoryEntity} from "../entity/ProductCategory.entity.js";
+import {GenderEnum} from "../enums/GenderEnum.js";
+import {FabricEnum} from "../enums/FabricEnum.js";
+import {OccasionEnum} from "../enums/OccasionEnum.js";
+import {SizeEnum} from "../enums/SizeEnum.js";
+import {ProductDTO} from "../helper/ProductDTO.js";
+import {ProductColorGroupEntity} from "../entity/ProductColorGroup.entity.js";
 
 export class FilterController {
   static async getFilterOptions(req: Request, res: Response) {
@@ -110,9 +109,7 @@ export class FilterController {
 
       const colorFilters = filterBody.Color
         ?.filter((item: any) => item.isChecked)
-        .map((item: any) => item.swatch.colorGroup_name)
-
-      console.log('COLORFILTER', colorFilters)
+        .map((item: any) => item.swatch?.colorGroup_name)
 
       if (colorFilters?.length > 0) {
         queryBuilder.leftJoinAndSelect('swatches.colorGroup', 'colorGroup')

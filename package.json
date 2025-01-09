@@ -1,16 +1,19 @@
 {
-  "name": "itlab-fs",
+  "name": "project-ecommerce",
   "version": "0.0.1",
-  "description": "Awesome project developed with ITLab.",
-  "type": "commonjs",
+  "description": "Ecommerce project by HZ.",
+  "type": "module",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^16.11.10",
     "@types/node-webcam": "^0.8.3",
+    "@types/nodemailer": "^6.4.17",
+    "@types/paypal-rest-sdk": "^1.7.9",
     "prettier": "^3.3.3",
-    "ts-node": "10.4.0",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "4.5.2"
+    "typescript": "5.7.2"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -27,16 +30,19 @@
     "json-web-token": "^3.2.0",
     "jsonwebtoken": "^9.0.2",
     "moment": "^2.30.1",
-    "node-webcam": "^0.8.2",
     "nodemailer": "^6.9.16",
     "paypal-rest-sdk": "^1.8.1",
     "reflect-metadata": "^0.2.2",
     "sqlite3": "^5.1.7",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
     "typeorm": "0.3.20"
   },
   "scripts": {
-    "dev:start": "cross-env NODE_ENV=development  ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "dev:start": "cross-env NODE_ENV=development  tsx watch ./src/index.ts",
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+    "build": "cross-env NODE_ENV=production tsc",
+    "start": "cross-env NODE_ENV=production node ./build/index.js",
     "---Migration---": "typeorm migration:generate -n",
     "dev:schema:sync": "cross-env NODE_ENV=development ts-node ./node_modules/typeorm/cli.js schema:sync -d src/InitDataSource.ts",
     "dev:schema:drop": "cross-env NODE_ENV=development ts-node ./node_modules/typeorm/cli.js schema:drop -d src/InitDataSource.ts",

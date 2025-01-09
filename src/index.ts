@@ -1,37 +1,17 @@
-//
-//--------------------------------------
-//
-
-//
-// 1 upgrade TypeORM from v0.2.44 to v0.3.10
-// 2. transfer DB connection from createConnection to DataSource mode
-// 3. upgrade other packages to the latest version
-// 4. start to use compiled JS in Production mode to optimize the execution time
-
-//
-//--------------------------------------
-//
-
-import 'reflect-metadata'
-import { createConnection } from 'typeorm'
-import { UserEntity } from './entity/User.entity'
-
-import 'reflect-metadata'
-import * as express from 'express'
-import * as bodyParser from 'body-parser'
-import { CLog } from './AppHelper'
-import gDB from './InitDataSource'
-import cors = require('cors')
-import rootRouter from "./routes";
-
-const MAX_UPLOAD_FILE_SIZE = 50
+import "reflect-metadata"
+import express from 'express'
+import bodyParser from 'body-parser'
+import cors from 'cors'
+import { CLog } from './AppHelper.js'
+import gDB from './InitDataSource.js'
+import rootRouter from "./routes/index.js";
 
 // 'process.env' object in Node.js holds all environment variables
 // When using tools like cross-env (defined in 'dev:start' , your application automatically reads .env files
 const SERVER_PORT = process.env.PORT
 
-// async function allow you to use 'await' inside, don't need to use '.then' to handle promise
 const startServer = async () => {
+
   try {
     await gDB.initialize()
     CLog.ok('Data Source has been initialized!')
@@ -60,3 +40,4 @@ const startServer = async () => {
 }
 
 startServer()
+

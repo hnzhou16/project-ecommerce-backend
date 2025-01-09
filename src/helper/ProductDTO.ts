@@ -1,4 +1,4 @@
-import {ProductEntity} from "../entity/Product.entity";
+import {ProductEntity} from "../entity/Product.entity.js";
 
 export class ProductDTO {
   productId: string;

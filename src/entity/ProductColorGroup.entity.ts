@@ -1,20 +1,20 @@
-import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
-import {ProductSwatchEntity} from "./ProductSwatch.entity";
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn, Relation} from "typeorm";
 import {Length} from "class-validator";
+import {ProductSwatchEntity} from "./ProductSwatch.entity.js";
 
 @Entity()
 export class ProductColorGroupEntity {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column()
+  @Column({type: "varchar"})
   @Length(0, 100)
   name: string
 
-  @Column()
+  @Column({type: "varchar"})
   @Length(0, 300)
   url: string
 
   @OneToMany(() => ProductSwatchEntity, swatch => swatch.colorGroup)
-  swatches: ProductSwatchEntity[]
+  swatches: Relation<ProductSwatchEntity[]>
 }

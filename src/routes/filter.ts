@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {FilterController} from "../controllers/FilterController";
+import {FilterController} from "../controllers/FilterController.js";
 
 const router = Router()
 router.get('/getFilter', FilterController.getFilterOptions)

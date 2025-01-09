@@ -1,25 +1,59 @@
 {
-//  a configuration file for the TypeScript compiler (tsc).
-//  It specifies how TypeScript should transpile your TypeScript code into JavaScript
   "compilerOptions": {
-    "lib": [
-      "es5",
-      "es6"
-    ],
-    "target": "es5",
-    "module": "commonjs",
+    "target": "es2017",
+    "module": "esnext",
     "moduleResolution": "node",
     "outDir": "./build",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
+    "types": [
+      "node"
+    ],
     "typeRoots": [
       "./node_modules/@types",
       "./types"
-    ]
+    ],
+    "allowSyntheticDefaultImports": true
   },
+//  "ts-node": {
+//    "compilerOptions": {
+//      "module": "commonjs",
+////      "esm": true
+//    }
+//  },
   "include": [
     "src",
     "types"
-  ]
+  ],
+  "exclude": ["node_modules"],
+  "esModuleInterop": true,
+  "allowSyntheticDefaultImports": true,
+  "skipLibCheck": true
 }
+//{
+//  "compilerOptions": {
+//    "lib": [
+//      "es5",
+//      "es6"
+//    ],
+//    "target": "es5",
+//    "module": "commonjs",
+//    "moduleResolution": "node",
+//    "outDir": "./build",
+//    "emitDecoratorMetadata": true,
+//    "experimentalDecorators": true,
+//    "sourceMap": true,
+//    "types": [
+//      "node"
+//    ],
+//    "typeRoots": [
+//      "./node_modules/@types",
+//      "./types"
+//    ]
+//  },
+//  "include": [
+//    "src",
+//    "types"
+//  ]
+//}

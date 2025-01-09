@@ -1,9 +1,7 @@
-import {Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
-import exp = require("node:constants");
-import {ProductImageEntity} from "./ProductImage.entity";
-import {ProductSwatchEntity} from "./ProductSwatch.entity";
-import Product from "../routes/product";
-import {ProductEntity} from "./Product.entity";
+import {Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, Relation} from "typeorm";
+import {ProductImageEntity} from "./ProductImage.entity.js";
+import {ProductSwatchEntity} from "./ProductSwatch.entity.js";
+import {ProductEntity} from "./Product.entity.js";
 
 @Entity()
 export class ProductCarouselEntity {
@@ -12,13 +10,13 @@ export class ProductCarouselEntity {
 
   @ManyToOne(() => ProductSwatchEntity, (swatch) => swatch.carousels,
     {eager: true})
-  swatch: ProductSwatchEntity
+  swatch: Relation<ProductSwatchEntity>
 
   @OneToMany(() => ProductImageEntity, (image) => image.carousel,
     {nullable: true, cascade: true, eager: true})
-  images: ProductImageEntity[]
+  images: Relation<ProductImageEntity[]>
 
   @ManyToOne(() => ProductEntity, (product) => product.mainCarousel,
     {nullable: true, lazy: true})
-  product: ProductEntity
+  product: Relation<ProductEntity>
 }

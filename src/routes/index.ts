@@ -1,12 +1,15 @@
-import {Router} from "express";
-import product from "./product";
-import auth from "./auth";
-import cart from "./cart"
-import payment from "./payment";
-import order from "./order";
-import filter from "./filter";
+import {Request, Response, Router} from "express";
+import product from "./product.js";
+import auth from "./auth.js";
+import cart from "./cart.js"
+import payment from "./payment.js";
+import order from "./order.js";
+import filter from "./filter.js";
 
 const rootRouter = Router()
+// rootRouter.use('/', (req: Request, res: Response) => {
+//   res.send('Server started!')
+// })
 rootRouter.use('/product', product)
 rootRouter.use('/filter', filter)
 rootRouter.use('/auth', auth)

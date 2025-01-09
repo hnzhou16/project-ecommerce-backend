@@ -1,32 +1,32 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany} from 'typeorm'
+import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany, Relation} from 'typeorm'
 import {IsEmail, IsOptional, Length, Matches, Max, Min} from 'class-validator'
-import * as bcrypt from 'bcrypt'
-import {CartEntity} from "./Cart.entity";
-import * as trace_events from "trace_events";
-import * as crypto from "crypto";
-import Order from "../routes/order";
-import {OrderEntity} from "./Order.entity";
-import order from "../routes/order";
+import bcrypt from 'bcrypt'
+import trace_events from "trace_events";
+import crypto from "crypto";
+import {CartEntity} from "./Cart.entity.js";
+import Order from "../routes/order.js";
+import {OrderEntity} from "./Order.entity.js";
+import order from "../routes/order.js";
 
 @Entity()
 export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column({nullable: true})
+  @Column({type: "varchar", nullable: true})
   @Length(0, 300)
   firstName: string
 
-  @Column({nullable: true})
+  @Column({type: "varchar", nullable: true})
   @Length(0, 300)
   lastName: string
 
-  @Column({ nullable: false, unique: true })
+  @Column({type: "varchar",  nullable: false, unique: true })
   @IsEmail({}, {groups: ['email']})
   @Length(5, 500, {groups: ['email']})
   email: string
 
-  @Column()
+  @Column({type: "varchar"})
   @Length(8, 100, {groups: ['password']})
   @Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).*$/, {
     message: 'Password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, and 1 number',
@@ -34,18 +34,18 @@ export class UserEntity {
   })
   password: string
 
-  @Column({nullable: true})
+  @Column({type: "varchar", nullable: true})
   resetToken: string
 
-  @Column({nullable: true})
+  @Column({type: "varchar", nullable: true})
   resetTokenExpiry: number
 
   @OneToOne(() => CartEntity, (cart) => cart.user, {cascade: true})
   @JoinColumn() // JoinColumn decides which side will have a column to show the foreign key (the other entity id)
-  cart: CartEntity
+  cart: Relation<CartEntity>
 
   @OneToMany(() => OrderEntity, (order) => order.user)
-  orders: OrderEntity[]
+  orders: Relation<OrderEntity[]>
 
   constructor() {
     // @OneToOne defines a link, but it does not automatically create an instance of CartEntity
@@ -60,8 +60,8 @@ export class UserEntity {
     this.password = bcrypt.hashSync(this.password, salt)
   }
 
-  validatePlainPassword(plainText: string): boolean {
-    return bcrypt.compare(plainText, this.password)
+  async validatePlainPassword(plainText: string): Promise<boolean> {
+    return await bcrypt.compare(plainText, this.password)
   }
 
   generateResetToken() {

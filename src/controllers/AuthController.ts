@@ -1,10 +1,10 @@
 import {Request, Response} from "express";
-import {UserEntity} from "../entity/User.entity";
 import {validate} from "class-validator";
-import {CLog} from "../AppHelper";
-import gDB from "../InitDataSource";
 import * as jwt from 'jsonwebtoken';
-import {sendEmail} from "../helper/SendEmail";
+import {CLog} from "../AppHelper.js";
+import {UserEntity} from "../entity/User.entity.js";
+import gDB from "../InitDataSource.js";
+import {sendEmail} from "../helper/SendEmail.js";
 
 export class AuthController {
     // make the UserRepo static to use it for all function
@@ -12,6 +12,7 @@ export class AuthController {
 
     static async signUp(req: Request, res: Response) {
         const {email, password} = req.body
+        console.log(email, password)
 
         if (!email || !password) {
             return res.status(400).json({message: 'Invalid email or password.'})

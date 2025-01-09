@@ -4,12 +4,12 @@ import {
     Entity,
     ManyToOne,
     OneToMany,
-    PrimaryGeneratedColumn,
+    PrimaryGeneratedColumn, Relation,
     UpdateDateColumn
 } from "typeorm";
-import {OrderStatus, ShippingType} from "../enums/Enum";
-import {OrderItemEntity} from "./OrderItem.entity";
-import {UserEntity} from "./User.entity";
+import {OrderStatus, ShippingType} from "../enums/Enum.js";
+import {OrderItemEntity} from "./OrderItem.entity.js";
+import {UserEntity} from "./User.entity.js";
 
 @Entity()
 export class OrderEntity {
@@ -42,7 +42,7 @@ export class OrderEntity {
     orderItems: OrderItemEntity[]
 
     @ManyToOne(() => UserEntity, (user) => user.orders)
-    user: UserEntity
+    user: Relation<UserEntity>
 
     @CreateDateColumn()
     createdAt: Date
