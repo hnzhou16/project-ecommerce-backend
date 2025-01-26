@@ -6,6 +6,10 @@ for ... in ... -> get keys
 const existingSwatch = await SwatchRepo.findOne({where: {name: swatchData.name}})
 
 
+###
+400 -> bad request
+401 -> Unauthorized
+
 ## Entity
 ### @OneToMany
 index id will be shown in the 'Many' side

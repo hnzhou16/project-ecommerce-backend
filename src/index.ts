@@ -31,7 +31,7 @@ const startServer = async () => {
 
     // socket io
     CLog.ok(
-      `NODE_ENV is : ${process.env.NODE_ENV}.\n Express server has started on port ${SERVER_PORT}.`,
+      `NODE_ENV is : ${process.env.ENV}.\n Express server has started on port ${SERVER_PORT}.`,
     )
   } catch (err) {
     CLog.bad('Error Server Initializing...', err)

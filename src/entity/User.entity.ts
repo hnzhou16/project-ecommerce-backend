@@ -26,6 +26,30 @@ export class UserEntity {
   @Length(5, 500, {groups: ['email']})
   email: string
 
+  @Column({type: "varchar",  nullable: true})
+  @Length(5, 500)
+  contactEmail: string
+
+  @Column({type: "varchar", nullable: true})
+  @Length(0, 500)
+  streetAddress: string
+
+  @Column({type: "varchar", nullable: true})
+  @Length(0, 100)
+  city: string
+
+  @Column({type: "varchar", nullable: true})
+  @Length(0, 100)
+  stateUSA: string
+
+  @Column({type: "varchar", nullable: true})
+  @Length(0, 100)
+  zipcode: string
+
+  @Column({type: "varchar", nullable: true})
+  @Length(0, 100)
+  country: string
+
   @Column({type: "varchar"})
   @Length(8, 100, {groups: ['password']})
   @Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).*$/, {
@@ -40,20 +64,20 @@ export class UserEntity {
   @Column({type: "varchar", nullable: true})
   resetTokenExpiry: number
 
-  @OneToOne(() => CartEntity, (cart) => cart.user, {cascade: true})
+  @OneToOne(() => CartEntity, (cart) => cart.user, {eager: true, cascade: ['insert']})
   @JoinColumn() // JoinColumn decides which side will have a column to show the foreign key (the other entity id)
   cart: Relation<CartEntity>
 
   @OneToMany(() => OrderEntity, (order) => order.user)
   orders: Relation<OrderEntity[]>
 
-  constructor() {
-    // @OneToOne defines a link, but it does not automatically create an instance of CartEntity
-    // When TypeORM instantiates a UserEntity, all fields including relationships, default to null unless explicitly set
-    if (!this.cart) {
-      this.cart = new CartEntity()
-    }
-  }
+  // constructor() {
+  //   // @OneToOne defines a link, but it does not automatically create an instance of CartEntity
+  //   // When TypeORM instantiates a UserEntity, all fields including relationships, default to null unless explicitly set
+  //   if (!this.cart) {
+  //     this.cart = new CartEntity()
+  //   }
+  // }
 
   hashPassword() {
     const salt = 10

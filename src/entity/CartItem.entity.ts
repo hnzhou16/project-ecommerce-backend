@@ -1,5 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, Relation} from 'typeorm'
 import {CartEntity} from "./Cart.entity.js";
+import {Length} from "class-validator";
+import {Exclude} from "class-transformer";
 
 @Entity()
 export class CartItemEntity {
@@ -13,6 +15,7 @@ export class CartItemEntity {
     colorId: string
 
     @Column({type: "varchar"})
+    @Length(0, 100)
     color: string
 
     @Column({type: "varchar", nullable: true })
@@ -31,5 +34,6 @@ export class CartItemEntity {
     name: string
 
     @ManyToOne(() => CartEntity, (cart) => cart.cartItems)
+    @Exclude()
     cart: Relation<CartEntity>
 }

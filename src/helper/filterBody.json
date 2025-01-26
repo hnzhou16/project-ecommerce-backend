@@ -1,0 +1,244 @@
+{
+  "Gender": [
+    {
+      "name": "Men",
+      "isChecked": false
+    },
+    {
+      "name": "Women",
+      "isChecked": false
+    }
+  ],
+  "Category": [
+    {
+      "name": "Coats & Jackets",
+      "isChecked": false
+    },
+    {
+      "name": "Dresses & Skirts",
+      "isChecked": false
+    },
+    {
+      "name": "Hoodies & Sweatshirts",
+      "isChecked": false
+    },
+    {
+      "name": "Shirts",
+      "isChecked": false
+    },
+    {
+      "name": "Shorts",
+      "isChecked": false
+    },
+    {
+      "name": "Sweaters",
+      "isChecked": false
+    },
+    {
+      "name": "T-Shirts",
+      "isChecked": false
+    },
+    {
+      "name": "Accessories",
+      "isChecked": false
+    },
+    {
+      "name": "Bags",
+      "isChecked": false
+    },
+    {
+      "name": "Gloves",
+      "isChecked": false
+    }
+  ],
+  "Size": [
+    {
+      "name": "0",
+      "isChecked": false
+    },
+    {
+      "name": "2",
+      "isChecked": false
+    },
+    {
+      "name": "4",
+      "isChecked": false
+    },
+    {
+      "name": "6",
+      "isChecked": false
+    },
+    {
+      "name": "8",
+      "isChecked": false
+    },
+    {
+      "name": "10",
+      "isChecked": false
+    },
+    {
+      "name": "12",
+      "isChecked": false
+    },
+    {
+      "name": "14",
+      "isChecked": false
+    },
+    {
+      "name": "16",
+      "isChecked": false
+    },
+    {
+      "name": "XXS",
+      "isChecked": false
+    },
+    {
+      "name": "XS",
+      "isChecked": false
+    },
+    {
+      "name": "S",
+      "isChecked": false
+    },
+    {
+      "name": "XS/S",
+      "isChecked": false
+    },
+    {
+      "name": "M",
+      "isChecked": false
+    },
+    {
+      "name": "L",
+      "isChecked": false
+    },
+    {
+      "name": "M/L",
+      "isChecked": false
+    },
+    {
+      "name": "XL",
+      "isChecked": false
+    },
+    {
+      "name": "XXL",
+      "isChecked": false
+    },
+    {
+      "name": "XL/XXL",
+      "isChecked": false
+    }
+  ],
+  "Color": [
+    {
+      "swatch": {
+        "colorGroup_name": "Black",
+        "colorGroup_url": "https://project-ecommerce-images.s3.us-east-1.amazonaws.com/swatches/color_001.jpg"
+      },
+      "isChecked": false
+    },
+    {
+      "swatch": {
+        "colorGroup_name": "White",
+        "colorGroup_url": "https://project-ecommerce-images.s3.us-east-1.amazonaws.com/swatches/color_002.jpg"
+      },
+      "isChecked": false
+    },
+    {
+      "swatch": {
+        "colorGroup_name": "Gray",
+        "colorGroup_url": "https://project-ecommerce-images.s3.us-east-1.amazonaws.com/swatches/color_004.jpg"
+      },
+      "isChecked": false
+    },
+    {
+      "swatch": {
+        "colorGroup_name": "Khaki",
+        "colorGroup_url": "https://project-ecommerce-images.s3.us-east-1.amazonaws.com/swatches/color_006.jpg"
+      },
+      "isChecked": false
+    },
+    {
+      "swatch": {
+        "colorGroup_name": "Yellow",
+        "colorGroup_url": "https://project-ecommerce-images.s3.us-east-1.amazonaws.com/swatches/color_009.jpg"
+      },
+      "isChecked": false
+    },
+    {
+      "swatch": {
+        "colorGroup_name": "Purple",
+        "colorGroup_url": "https://project-ecommerce-images.s3.us-east-1.amazonaws.com/swatches/color_011.jpg"
+      },
+      "isChecked": false
+    },
+    {
+      "swatch": {
+        "colorGroup_name": "Pink",
+        "colorGroup_url": "https://project-ecommerce-images.s3.us-east-1.amazonaws.com/swatches/color_014.jpg"
+      },
+      "isChecked": false
+    },
+    {
+      "swatch": {
+        "colorGroup_name": "Red",
+        "colorGroup_url": "https://project-ecommerce-images.s3.us-east-1.amazonaws.com/swatches/color_016.jpg"
+      },
+      "isChecked": false
+    },
+    {
+      "swatch": {
+        "colorGroup_name": "Green",
+        "colorGroup_url": "https://project-ecommerce-images.s3.us-east-1.amazonaws.com/swatches/color_018.jpg"
+      },
+      "isChecked": false
+    },
+    {
+      "swatch": {
+        "colorGroup_name": "Blue",
+        "colorGroup_url": "https://project-ecommerce-images.s3.us-east-1.amazonaws.com/swatches/color_021.jpg"
+      },
+      "isChecked": false
+    }
+  ],
+  "Fabric": [
+    {
+      "name": "Cotton",
+      "isChecked": false
+    },
+    {
+      "name": "Linen",
+      "isChecked": false
+    },
+    {
+      "name": "Wool",
+      "isChecked": false
+    },
+    {
+      "name": "Cotton Blend",
+      "isChecked": false
+    },
+    {
+      "name": "Linen Blend",
+      "isChecked": false
+    },
+    {
+      "name": "Wool Blend",
+      "isChecked": false
+    }
+  ],
+  "Occasion": [
+    {
+      "name": "Casual",
+      "isChecked": false
+    },
+    {
+      "name": "Work",
+      "isChecked": false
+    },
+    {
+      "name": "Party",
+      "isChecked": false
+    }
+  ]
+}
