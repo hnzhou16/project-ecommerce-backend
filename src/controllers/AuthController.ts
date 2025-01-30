@@ -5,8 +5,8 @@ import {CLog} from "../AppHelper.js";
 import {UserEntity} from "../entity/User.entity.js";
 import gDB from "../InitDataSource.js";
 import {sendEmail} from "../helper/SendEmail.js";
-import {ResMsg} from "../helper/ResMsg";
-import {CartEntity} from "../entity/Cart.entity";
+import {ResMsg} from "../helper/ResMsg.js";
+import {CartEntity} from "../entity/Cart.entity.js";
 
 export class AuthController {
   static UserRepo = gDB.getRepository(UserEntity)

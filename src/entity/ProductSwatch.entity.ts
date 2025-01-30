@@ -1,8 +1,6 @@
 import {Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, Relation} from "typeorm";
 import {Length} from "class-validator";
 import {ProductEntity} from "./Product.entity.js";
-import product from "../routes/product.js";
-import {ProductImageEntity} from "./ProductImage.entity.js";
 import {ProductCarouselEntity} from "./ProductCarousel.entity.js";
 import {ProductColorGroupEntity} from "./ProductColorGroup.entity.js";
 

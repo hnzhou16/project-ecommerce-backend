@@ -1,12 +1,9 @@
 import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany, Relation} from 'typeorm'
 import {IsEmail, IsOptional, Length, Matches, Max, Min} from 'class-validator'
 import bcrypt from 'bcrypt'
-import trace_events from "trace_events";
 import crypto from "crypto";
 import {CartEntity} from "./Cart.entity.js";
-import Order from "../routes/order.js";
 import {OrderEntity} from "./Order.entity.js";
-import order from "../routes/order.js";
 
 @Entity()
 export class UserEntity {

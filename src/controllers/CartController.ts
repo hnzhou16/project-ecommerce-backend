@@ -6,7 +6,6 @@ import gDB from "../InitDataSource.js";
 import {CartEntity} from "../entity/Cart.entity.js";
 import {UserEntity} from "../entity/User.entity.js";
 import {CartItemEntity} from "../entity/CartItem.entity.js";
-import cart from "../routes/cart";
 import {plainToInstance} from "class-transformer";
 
 export class CartController {

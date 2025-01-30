@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { generatePrompt, getAIResponse } from "../helper/OpenAIPrompt";
+import { generatePrompt, getAIResponse } from "../helper/OpenAIPrompt.js";
 import * as fs from "fs";
 import * as path from "path";
 import {fileURLToPath} from "url";

@@ -4,7 +4,7 @@ import auth from "./auth.js";
 import cart from "./cart.js"
 import payment from "./payment.js";
 import filter from "./filter.js";
-import openAI from "./openAI";
+import openAI from "./openAI.js";
 
 const rootRouter = Router()
 // rootRouter.use('/', (req: Request, res: Response) => {
