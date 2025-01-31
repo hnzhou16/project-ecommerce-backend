@@ -23,7 +23,10 @@ const startServer = async () => {
 
     // setup express app (middleware)
     app.use(bodyParser.json())
-    app.use(cors())
+    app.use(cors({
+      origin: "https://hugzest.com",
+      credentials: true
+    }))
     app.use('/', rootRouter)
 
     // start express server

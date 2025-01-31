@@ -18,7 +18,7 @@ const __filename = fileURLToPath(import.meta.url); // get the resolved path to t
 const __dirname = path.dirname(__filename);  // get the name of the directory
 const entityPath =
   process.env.ENV === 'production'
-    ? path.join(__dirname + '/../../build/src/auth2/entity/**/*.entity.js')
+    ? path.join(__dirname + '/../build/entity/**/*.entity.js')
     : path.join(__dirname + '/../src/entity/**/*.entity.ts')
 CLog.ok(`Env is: -->${process.env.NODE_ENV}`)
 CLog.ok(`Server Path-->${__dirname}`)
