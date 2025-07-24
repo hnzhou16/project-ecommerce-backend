@@ -24,7 +24,7 @@ const startServer = async () => {
     // setup express app (middleware)
     app.use(bodyParser.json())
     app.use(cors({
-      origin: "https://hugzest.com",
+      origin: ["https://hugzest.com", "http://localhost:3000"],
       credentials: true
     }))
     app.use('/', rootRouter)
